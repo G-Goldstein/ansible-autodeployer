@@ -1,4 +1,4 @@
 - hosts: all
   tasks:
     - name: Create an archive directory for the present run
-      file: path=/path/{{ service }}/logs/{{ ansible_date_time.date }}-{{ ansible_date_time.time }} state=directory recurse=yes
+      file: path=/path/{{ lookup('env', 'service') }}/logs/{{ ansible_date_time.date }}-{{ ansible_date_time.time }} state=directory recurse=yes
