@@ -1,10 +1,11 @@
 - hosts: all
   vars:
     service_directory: "/opt/{{ lookup('env', 'service') }}"
-    log_archive: "{{ service_directory }}/logs/{{ ansible_date_time.date }}-{{ ansible_date_time.time }}"
+    log_directory: "{{ service_directory }}/logs"
+    log_archive: "{{ log_directory }}/{{ ansible_date_time.date }}-{{ ansible_date_time.time }}"
   tasks:
     - name: Create an archive directory for the present run
       file: "path={{ log_archive }} state=directory recurse=yes"
 
     - name: Move the logs into the archive directory
-      command: 'find  $SERVICE_BASE/logs -maxdepth 1 -type f -exec mv {} "$LogArchive" \;'
+      command: 'find {{ log_directory }} -maxdepth 1 -type f -exec mv {} {{ log_archive }} \;'
