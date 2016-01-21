@@ -3,7 +3,7 @@
     service_directory: "/path/{{ lookup('env', 'service') }}"
     log_archive: "{{ service_directory }}/logs/{{ ansible_date_time.date }}-{{ ansible_date_time.time }}"
   tasks:
-    - debug: Hello
+    - debug: msg="Directory {{ service_directory }}" 
 
     - name: Create an archive directory for the present run
       file: path=log_archive state=directory recurse=yes
