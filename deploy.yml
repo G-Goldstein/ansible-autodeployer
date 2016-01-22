@@ -1,0 +1,17 @@
+# Deploy script to run on each deployment
+
+- hosts: all
+
+  vars:
+
+    service_directory: "/opt/{{ lookup('env', 'service') }}"
+
+  tasks:
+
+    - include: deployment/java_autodeployer.yml
+      vars:
+        service_directory: {{ service_directory }}
+
+    - include: deployment/archive_logs.yml
+      vars:
+        service_directory: {{ service_directory }}
