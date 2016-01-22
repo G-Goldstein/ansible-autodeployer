@@ -1,2 +1,2 @@
-    - name: Retrieve the java autodeployer from the Maven repository
-      maven_artifact: "artifact_id=deploygate-plugin dest={{ maven_directory }} group_id=org.jenkins-ci.plugins.deploygate repository_url=http://nexus.jhc.co.uk/nexus state=present"
+    #- name: Retrieve the java autodeployer from the Maven repository
+    - maven_artifact: "artifact_id=deploygate-plugin dest={{ maven_directory }} group_id=org.jenkins-ci.plugins.deploygate repository_url=http://nexus.jhc.co.uk/nexus state=present"
