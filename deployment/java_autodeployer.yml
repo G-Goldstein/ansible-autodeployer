@@ -4,4 +4,4 @@
 
     - name: Retrieve the java autodeployer from the Maven repository
       #maven_artifact: "artifact_id=deploygate-plugin dest={{ java_autodeployer_destination | quote }} group_id=org.jenkins-ci.plugins.deploygate repository_url=http://nexus.jhc.co.uk/nexus state=present"
-      maven_artifact: "artifact_id=deploygate-plugin url=http://nexus.jhc.co.uk/nexus/service/local/repositories/Jenkins/content dest=/opt/gg/maven/test.jar group_id=org.jenkins-ci.plugins.deploygate state=present"
+      maven_artifact: "artifact_id=deploygate-plugin repository_url=http://nexus.jhc.co.uk/nexus/service/local/repositories/Jenkins/content dest=/opt/gg/maven/test.jar group_id=org.jenkins-ci.plugins.deploygate state=present"
