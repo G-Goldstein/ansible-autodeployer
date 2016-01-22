@@ -1,2 +1,5 @@
+    - name: Ensure the Maven directory exists
+      file: "path={{ maven_directory | quote }} state=directory recurse=yes"
+
     - name: Retrieve the java autodeployer from the Maven repository
       maven_artifact: "artifact_id=deploygate-plugin dest={{ java_autodeployer_destination | quote }} group_id=org.jenkins-ci.plugins.deploygate repository_url=http://nexus.jhc.co.uk/nexus state=present"
