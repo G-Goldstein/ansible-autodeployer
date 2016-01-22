@@ -5,13 +5,13 @@
   vars:
 
     service_directory: "/opt/{{ lookup('env', 'service') }}"
+    deploy_playbooks: 
+    - deployment/java_autodeployer.yml
+    - deployment/archive_logs.yml
 
   tasks:
 
-    - include: deployment/java_autodeployer.yml
+    - include: "{{ item }}"
       vars:
-        service_directory: {{ service_directory }}
-
-    - include: deployment/archive_logs.yml
-      vars:
-        service_directory: {{ service_directory }}
+        service_directory: "{{ service_directory }}"
+      with_items: "{{ deploy_playbooks }}"
