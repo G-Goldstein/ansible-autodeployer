@@ -8,6 +8,7 @@
     log_directory: "{{ service_directory }}/logs"
     log_archive: "{{ log_directory }}/{{ ansible_date_time.date }}-{{ ansible_date_time.time }}"
     maven_directory: "{{ service_directory }}/maven"
+    java_autodeployer_destination: "{{ maven_directory }}/java_autodeployer.jar"
 
   tasks:
 
