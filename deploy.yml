@@ -5,16 +5,12 @@
   vars:
 
     service_directory: "/opt/{{ lookup('env', 'service') }}"
-    deploy_playbooks: 
-    - 
-    - deployment/archive_logs.yml
+    log_directory: "{{ service_directory }}/logs"
+    log_archive: "{{ log_directory }}/{{ ansible_date_time.date }}-{{ ansible_date_time.time }}"
+    maven_directory: "{{ service_directory }}/maven"
 
   tasks:
 
     - include: deployment/java_autodeployer.yml
-      vars:
-        service_directory: "{{ service_directory }}"
 
     - include: deployment/archive_logs.yml
-      vars:
-        service_directory: "{{ service_directory }}"

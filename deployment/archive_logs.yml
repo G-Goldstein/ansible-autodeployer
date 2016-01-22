@@ -1,12 +1,3 @@
-- hosts: all
-
-  vars:
-
-    log_directory: "{{ service_directory }}/logs"
-    log_archive: "{{ log_directory }}/{{ ansible_date_time.date }}-{{ ansible_date_time.time }}"
-
-  tasks:
-
     - name: Create an archive directory for the present run
       file: "path={{ log_archive | quote }} state=directory recurse=yes"
 
