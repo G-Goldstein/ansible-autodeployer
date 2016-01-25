@@ -2,4 +2,4 @@
       file: "path={{ log_archive | quote }} state=directory recurse=yes"
 
     - name: Move the logs into the archive directory
-      command: "find {{ log_directory | quote }} -maxdepth 1 -type f -exec 'mv {} {{ log_archive | quote }} \;'"
+      shell: "find {{ log_directory | quote }} -maxdepth 1 -type f -exec mv {} {{ log_archive | quote }} \;"
