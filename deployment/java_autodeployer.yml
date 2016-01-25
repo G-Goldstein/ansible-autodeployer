@@ -5,3 +5,6 @@
     - name: Retrieve the java autodeployer from the Maven repository
       #maven_artifact: "artifact_id=deploygate-plugin dest={{ java_autodeployer_destination | quote }} group_id=org.jenkins-ci.plugins.deploygate repository_url=http://nexus.jhc.co.uk/nexus state=present"
       maven_artifact: "artifact_id={{ java_autodeployer_artifact_id }} repository_url={{ java_autodeployer_repository_url }} dest={{ java_autodeployer_destination | quote }} group_id={{ java_autodeployer_group_id }} state=present"
+
+    - name: Run the Java autodeployer
+      shell: 'java -jar dest={{ java_autodeployer_destination | quote }} {{ figaroweb_install_config | quote }}'

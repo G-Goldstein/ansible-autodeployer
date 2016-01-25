@@ -7,13 +7,16 @@
     service_directory: "/opt/{{ lookup('env', 'service') }}"
 
     log_directory: "{{ service_directory }}/logs"
+    log_archive: "{{ log_directory }}/{{ ansible_date_time.date }}-{{ ansible_date_time.time }}"
+
     maven_directory: "{{ service_directory }}/maven"
 
-    log_archive: "{{ log_directory }}/{{ ansible_date_time.date }}-{{ ansible_date_time.time }}"
     java_autodeployer_destination: "{{ maven_directory }}/java_autodeployer.jar"
     java_autodeployer_repository_url: "http://nexus.jhc.co.uk/nexus/content/groups/development"
     java_autodeployer_artifact_id: "FigaroJavaDeployer"
     java_autodeployer_group_id: "jhc.util"
+
+    figaroweb_install_config: "{{ service directory}}/figaroweb.install"
 
   tasks:
 
