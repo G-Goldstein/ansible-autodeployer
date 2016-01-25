@@ -16,7 +16,7 @@
     java_autodeployer_artifact_id: "FigaroJavaDeployer"
     java_autodeployer_group_id: "jhc.util"
 
-    figaroweb_install_config: "{{ service directory}}/figaroweb.install"
+    figaroweb_install_config: "{{ service directory }}/figaroweb.install"
 
   tasks:
 
