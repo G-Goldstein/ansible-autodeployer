@@ -8,4 +8,4 @@
 
     - name: Run the Java autodeployer
       shell: "java -jar {{ java_autodeployer_destination | quote }} {{ figaroweb_install_config | quote}} force"
-      failed_when: "len(stderr) > 0"
+      failed_when: "stderr != ''"
